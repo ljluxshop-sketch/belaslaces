@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rabos de Cavalo | Bela Laces</title>
+<style>
+
+  :root{
+    --gold-1:#d4a942;
+    --gold-2:#a9791f;
+    --gold-grad: linear-gradient(90deg,#b8862f,#e0b458,#b8862f);
+    --amber-bar:#c98a3d;
+    --black:#111111;
+    --black-soft:#1c1c1c;
+    --cream:#fffdf9;
+    --gray-bg:#f6f4ef;
+    --text:#1a1a1a;
+    --text-light:#6b6b6b;
+    --border:#e7e2d8;
+    --heart:#c9c9c9;
+    --telegram:#229ED9;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color:var(--text);
+    background:var(--cream);
+  }
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+
+  .topbar{
+    background: var(--amber-bar);
+    color:#fff;
+    text-align:center;
+    padding:10px 20px;
+    font-weight:700;
+    letter-spacing:.5px;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    position:relative;
+  }
+  .topbar .arrow{
+    position:absolute;
+    cursor:pointer;
+    font-size:18px;
+    opacity:.85;
+  }
+  .topbar .arrow.left{left:24px;}
+  .topbar .arrow.right{right:24px;}
+
+  header.main-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    padding:18px 40px;
+    flex-wrap:wrap;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:26px;
+    letter-spacing:1px;
+    white-space:nowrap;
+  }
+  .logo .leaf{
+    width:34px;height:44px;
+    background: var(--gold-grad);
+    -webkit-mask: radial-gradient(circle at 30% 30%, transparent 40%, black 41%);
+    mask: radial-gradient(circle at 30% 30%, transparent 40%, black 41%);
+    border-radius: 50% 50% 50% 0;
+  }
+  .logo span.bela{
+    background:var(--gold-grad);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .logo span.laces{color:var(--black);}
+
+  .search-bar{
+    flex:1;
+    display:flex;
+    max-width:640px;
+    min-width:220px;
+    background:var(--black);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .search-bar input{
+    flex:1;
+    border:none;
+    background:transparent;
+    color:#fff;
+    padding:14px 18px;
+    font-size:15px;
+    outline:none;
+  }
+  .search-bar input::placeholder{color:#bbb;}
+  .search-bar button{
+    background:transparent;
+    border:none;
+    color:#fff;
+    padding:0 18px;
+    cursor:pointer;
+    font-size:18px;
+  }
+
+  .header-actions{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    font-size:14px;
+    white-space:nowrap;
+  }
+  .header-actions .item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .header-actions .icon-circle{
+    width:34px;height:34px;
+    border:1.5px solid var(--black);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:16px;
+  }
+  .header-actions strong{display:block;}
+
+  nav.main-nav{
+    background:var(--black);
+    color:#fff;
+  }
+  nav.main-nav ul{
+    display:flex;
+    align-items:center;
+    gap:38px;
+    padding:16px 40px;
+    flex-wrap:wrap;
+  }
+  nav.main-nav ul li a{
+    font-weight:700;
+    font-size:15px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    color:#fff;
+  }
+  nav.main-nav ul li:first-child a{gap:10px;}
+  nav.main-nav .promo{color:var(--gold-1) !important;}
+  nav.main-nav ul li a.active{color:var(--gold-1) !important;}
+
+  .breadcrumb{
+    padding:20px 40px 0;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--text-light);
+    font-size:15px;
+  }
+  .breadcrumb strong{color:var(--text);}
+  .breadcrumb-divider{
+    margin:16px 40px 0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .page-wrap{
+    display:flex;
+    gap:32px;
+    padding:24px 40px 60px;
+    align-items:flex-start;
+  }
+  aside.sidebar{
+    width:260px;
+    flex-shrink:0;
+  }
+  .filter-box{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:24px;
+    margin-bottom:20px;
+  }
+  .filter-box h3{
+    font-size:18px;
+    margin-bottom:14px;
+  }
+  .filter-box ul li{
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:15px;
+    cursor:pointer;
+  }
+  .filter-box ul li:last-child{border-bottom:none;}
+  .filter-box.links ul li{
+    font-weight:700;
+    font-size:16px;
+    border-bottom:1px solid var(--border);
+    padding:12px 0;
+  }
+
+  main.content{flex:1; min-width:0;}
+  .content-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:16px;
+  }
+  .sort-select{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px 18px;
+    font-size:15px;
+    background:#fff;
+    cursor:pointer;
+  }
+  .pagination{
+    display:flex;
+    gap:8px;
+  }
+  .pagination span{
+    width:36px;height:36px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:6px;
+    font-size:14px;
+    cursor:pointer;
+    color:var(--text-light);
+  }
+  .pagination span.active{
+    background:var(--gray-bg);
+    color:var(--text);
+    font-weight:700;
+  }
+  h1.section-title{
+    font-size:32px;
+    margin:6px 0 24px;
+  }
+
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
+    gap:24px;
+  }
+  .product-card{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  }
+  .product-image{
+    position:relative;
+    aspect-ratio:3/4;
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--gray-bg);
+    border:2px dashed var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--text-light);
+    font-size:13px;
+    padding:14px;
+  }
+  .product-image img{
+    width:100%;height:100%;object-fit:cover;
+    position:absolute; inset:0;
+  }
+  .badge{
+    position:absolute;
+    top:12px;left:12px;
+    background:var(--black);
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    padding:6px 10px;
+    border-radius:4px;
+    z-index:2;
+  }
+  .heart{
+    position:absolute;
+    top:12px;right:12px;
+    width:34px;height:34px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--heart);
+    font-size:16px;
+    z-index:2;
+    cursor:pointer;
+  }
+  .product-info{padding:14px 4px 0;}
+  .product-info .name{font-size:15px; font-weight:600; margin-bottom:6px; min-height:40px;}
+  .product-info .price-old{
+    color:var(--text-light);
+    text-decoration:line-through;
+    font-size:13px;
+    margin-right:8px;
+  }
+  .product-info .price-new{
+    font-size:18px;
+    font-weight:800;
+    color:var(--gold-2);
+  }
+
+  footer{
+    background:var(--gray-bg);
+    padding:60px 40px 0;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:40px;
+    border-bottom:1px solid var(--border);
+  }
+  .footer-grid h4{
+    font-size:20px;
+    margin-bottom:20px;
+  }
+  .footer-grid p{
+    font-size:15px;
+    line-height:1.7;
+    color:#333;
+  }
+  .footer-grid ul li{
+    padding:6px 0;
+    font-size:15px;
+    color:#333;
+  }
+  .footer-grid ul li a:hover{color:var(--gold-2);}
+  .contact-item{
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+    font-size:15px;
+    align-items:flex-start;
+  }
+  .hr-light{border:none; border-top:1px solid var(--border); margin:16px 0;}
+  .cta-btn{
+    background:var(--black);
+    color:#fff;
+    border:none;
+    padding:14px 22px;
+    font-weight:700;
+    border-radius:4px;
+    cursor:pointer;
+    margin-top:16px;
+    font-size:14px;
+    letter-spacing:.5px;
+  }
+  .social-row{
+    display:flex;
+    gap:14px;
+    margin-top:6px;
+  }
+  .social-row a{
+    width:40px;height:40px;
+    border-radius:50%;
+    background:var(--telegram);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .social-row a svg, .float-telegram svg{
+    width:20px;height:20px;
+    fill:#fff;
+  }
+  .float-telegram svg{width:28px;height:28px;}
+
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:24px 0 20px;
+  }
+  .pay-icons{
+    display:flex;
+    gap:10px;
+  }
+  .pay-icons span{
+    border:1px solid var(--border);
+    background:#fff;
+    padding:6px 10px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:700;
+    color:#444;
+  }
+  .seal{
+    border:1px solid var(--border);
+    background:#fff;
+    padding:8px 14px;
+    border-radius:4px;
+    font-size:12px;
+    color:#444;
+  }
+  .legal-bar{
+    text-align:center;
+    font-size:13px;
+    color:var(--text-light);
+    padding:22px 0;
+    border-top:1px solid var(--border);
+  }
+  .legal-bar a{margin:0 6px; color:var(--text-light);}
+  .legal-bar a:hover{color:var(--gold-2);}
+
+  .float-telegram{
+    position:fixed;
+    bottom:26px;
+    right:26px;
+    width:60px;height:60px;
+    background:var(--telegram);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+    z-index:99;
+  }
+
+  @media (max-width: 980px){
+    .page-wrap{flex-direction:column;}
+    aside.sidebar{width:100%;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width: 600px){
+    header.main-header{padding:16px;}
+    nav.main-nav ul{padding:14px 16px; gap:20px; overflow-x:auto;}
+    .page-wrap{padding:16px;}
+    .breadcrumb, .breadcrumb-divider{padding-left:16px; margin-left:16px; margin-right:16px;}
+    footer{padding:40px 16px 0;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- ===== TOPO ===== -->
+  <div class="topbar">
+    <span class="arrow left">&#10094;</span>
+    FRETE GRÁTIS PARA TODO O BRASIL
+    <span class="arrow right">&#10095;</span>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="main-header">
+    <a href="index.html" class="logo">
+      <div class="leaf"></div>
+      <div><span class="bela">BELA</span> <span class="laces">LACES</span></div>
+    </a>
+
+    <form class="search-bar" onsubmit="return false;">
+      <input type="text" placeholder="Digite o que você procura">
+      <button type="submit">&#128269;</button>
+    </form>
+
+    <div class="header-actions">
+      <div class="item">
+        <div class="icon-circle">&#128172;</div>
+        <div>Central de<br><strong>Atendimento</strong></div>
+      </div>
+      <div class="item">
+        <div class="icon-circle">&#128100;</div>
+        <div>Olá, Bem-vindo(a)<br><strong>Entre</strong> ou <strong>Cadastre-se</strong></div>
+      </div>
+      <div class="item">
+        <div class="icon-circle">&#128092;</div>
+        <div><strong>Minha Sacola</strong><br>R$ 0,00</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== NAV ===== -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">&#9776; Todas Categorias</a></li>
+      <li><a href="promo-aniversario.html" class="promo">PROMO ANIVERSÁRIO</a></li>
+      <li><a href="lancamentos.html">Lançamentos</a></li>
+      <li><a href="perucas.html">Perucas</a></li>
+      <li><a href="index.html">Laces</a></li>
+      <li><a href="topo-capilar.html">TOPO CAPILAR</a></li>
+      <li><a href="rabos-de-cavalo.html" class="active">Rabos de Cavalo</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <div class="breadcrumb">
+    &#127968; <a href="index.html">Página inicial</a> | <strong>Rabos de Cavalo</strong>
+  </div>
+  <div class="breadcrumb-divider"></div>
+
+  <!-- ===== CONTEÚDO ===== -->
+  <div class="page-wrap">
+
+    <aside class="sidebar">
+      <div class="filter-box">
+        <h3>Rabos de Cavalo</h3>
+        <ul>
+          <li>Rabo Preso com Garra <span>&#8250;</span></li>
+          <li>Rabo Cacheado <span>&#8250;</span></li>
+          <li>Rabo Liso <span>&#8250;</span></li>
+        </ul>
+      </div>
+
+      <div class="filter-box links">
+        <ul>
+          <li><a href="promo-aniversario.html">PROMO ANIVERSÁRIO</a></li>
+          <li><a href="lancamentos.html">Lançamentos</a></li>
+          <li><a href="perucas.html">Perucas</a></li>
+          <li><a href="topo-capilar.html">TOPO CAPILAR</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="content-top">
+        <select class="sort-select">
+          <option>Relevância</option>
+          <option>Menor preço</option>
+          <option>Maior preço</option>
+          <option>Mais vendidos</option>
+        </select>
+        <div class="pagination" id="pagination"></div>
+      </div>
+
+      <h1 class="section-title">Rabos de Cavalo</h1>
+
+      <div class="product-grid" id="productGrid"></div>
+    </main>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>Sobre nós</h4>
+        <p>
+          Bem-vindo à Bela Laces, o destino definitivo para quem busca perucas, laces e
+          wigs de alta qualidade e beleza incomparável. Nossa seleção inclui opções em
+          fibra premium e cabelo humano, garantindo a escolha perfeita para realçar sua
+          beleza natural. Compre agora e faça a melhor escolha da sua vida!
+        </p>
+      </div>
+
+      <div>
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="promo-aniversario.html">PROMO ANIVERSÁRIO</a></li>
+          <li><a href="lancamentos.html">Lançamentos</a></li>
+          <li><a href="perucas.html">Perucas</a></li>
+          <li><a href="index.html">Laces</a></li>
+          <li><a href="topo-capilar.html">TOPO CAPILAR</a></li>
+          <li><a href="rabos-de-cavalo.html">Rabos de Cavalo</a></li>
+          <li><a href="acessorios.html">Acessórios</a></li>
+          <li><a href="outlet.html">OUTLET</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="termos-de-uso.html">Termos de Uso</a></li>
+          <li><a href="manual-laces-wigs.html">Manual de Laces &amp; Wigs</a></li>
+          <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="quem-somos.html">Quem somos</a></li>
+          <li><a href="trocas-e-devolucoes.html">Trocas e Devoluções</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <div class="contact-item">&#128222; Telefone: (31) 99193-2345</div>
+        <div class="contact-item">&#9993; E-mail: atendimento@belalaces.com.br</div>
+        <hr class="hr-light">
+        <div><strong>Horário de Atendimento</strong></div>
+        <div>Seg. à Sex. 9h às 18h</div>
+        <button class="cta-btn">FALE CONOSCO</button>
+      </div>
+
+      <div>
+        <h4>Acompanhe</h4>
+        <div class="social-row">
+          <a href="https://t.me/SEU_USUARIO_TELEGRAM" target="_blank" title="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M21.05 3.4 2.7 10.53c-1.24.5-1.23 1.2-.23 1.5l4.7 1.47 1.83 5.6c.22.6.37.83.75.83.3 0 .43-.14.6-.3l2.55-2.45 4.66 3.44c.86.5 1.48.24 1.7-.8l3.08-14.5c.32-1.28-.48-1.85-1.3-1.5Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        <div style="font-weight:700; margin-bottom:10px;">Pague com</div>
+        <div class="pay-icons">
+          <span>VISA</span><span>Master</span><span>Elo</span><span>Diners</span><span>Amex</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:700; margin-bottom:10px;">Selos</div>
+        <div class="seal">Compra Segura</div>
+      </div>
+    </div>
+
+    <div class="legal-bar" id="termos">
+      Bela Laces © 2026. Todos os direitos reservados. CNPJ: 33.383.570/0001-67 |
+      <a href="termos-de-uso.html">Termos de Uso</a> | <a href="politica-de-privacidade.html">Política de Privacidade</a> | <a href="trocas-e-devolucoes.html">Trocas e Devoluções</a>
+    </div>
+  </footer>
+
+  <!-- ===== BOTÃO FLUTUANTE TELEGRAM ===== -->
+  <a class="float-telegram" href="https://t.me/SEU_USUARIO_TELEGRAM" target="_blank" title="Fale conosco no Telegram">
+    <svg viewBox="0 0 24 24"><path d="M21.05 3.4 2.7 10.53c-1.24.5-1.23 1.2-.23 1.5l4.7 1.47 1.83 5.6c.22.6.37.83.75.83.3 0 .43-.14.6-.3l2.55-2.45 4.66 3.44c.86.5 1.48.24 1.7-.8l3.08-14.5c.32-1.28-.48-1.85-1.3-1.5Z"/></svg>
+  </a>
+
+  <script>
+    /* ============================================================
+       CONFIGURAÇÃO DOS PRODUTOS
+       -> Todas as fotos ficam na mesma pasta "img", numeradas
+       sequencialmente. Página Rabos de Cavalo usa img33 a img44.
+    ============================================================ */
+    const produtos = [
+      { nome: "Rabo de Cavalo Liso Longo", precoAntigo: "", preco: "R$ 259,00", desconto: "", imagem: "img/img33.webp" },
+      { nome: "Rabo de Cavalo Cacheado Volumoso", precoAntigo: "", preco: "R$ 289,00", desconto: "", imagem: "img/img34.webp" },
+      { nome: "Rabo de Cavalo Ondulado Loiro", precoAntigo: "", preco: "R$ 279,00", desconto: "", imagem: "img/img35.webp" },
+      { nome: "Rabo de Cavalo Fibra Premium Preto", precoAntigo: "", preco: "R$ 189,00", desconto: "", imagem: "img/img36.webp" },
+      { nome: "Rabo de Cavalo Cabelo Humano Castanho", precoAntigo: "", preco: "R$ 329,00", desconto: "", imagem: "img/img37.webp" },
+      { nome: "Rabo de Cavalo Preso com Garra", precoAntigo: "", preco: "R$ 219,00", desconto: "", imagem: "img/img38.webp" },
+      { nome: "Rabo de Cavalo Cacheado Curto", precoAntigo: "", preco: "R$ 199,00", desconto: "", imagem: "img/img39.webp" },
+      { nome: "Rabo de Cavalo Ondulado Ruivo", precoAntigo: "", preco: "R$ 249,00", desconto: "", imagem: "img/img40.webp" },
+      { nome: "Rabo de Cavalo Extra Volume", precoAntigo: "R$ 379,00", preco: "R$ 299,00", desconto: "20% OFF", imagem: "img/img41.webp" },
+      { nome: "Rabo de Cavalo Liso Repicado", precoAntigo: "", preco: "R$ 229,00", desconto: "", imagem: "img/img42.webp" },
+      { nome: "Rabo de Cavalo Fibra Premium Cacheado", precoAntigo: "", preco: "R$ 209,00", desconto: "", imagem: "img/img43.webp" },
+      { nome: "Rabo de Cavalo Cabelo Humano Longo", precoAntigo: "R$ 429,00", preco: "R$ 349,00", desconto: "18% OFF", imagem: "img/img44.webp" }
+    ];
+
+    const grid = document.getElementById('productGrid');
+
+    produtos.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+
+      const imgHtml = p.imagem
+        ? `<img src="${p.imagem}" alt="${p.nome}">`
+        : `COLOQUE AQUI<br>O LINK DA FOTO`;
+
+      card.innerHTML = `
+        <div class="product-image">
+          ${p.desconto ? `<span class="badge">${p.desconto}</span>` : ''}
+          <span class="heart">&#9825;</span>
+          ${imgHtml}
+        </div>
+        <div class="product-info">
+          <div class="name">${p.nome}</div>
+          <div>
+            ${p.precoAntigo ? `<span class="price-old">${p.precoAntigo}</span>` : ''}
+            <span class="price-new">${p.preco}</span>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Paginação simples (visual)
+    const pag = document.getElementById('pagination');
+    const paginas = ['«','1','2','3','...','14','15','»'];
+    paginas.forEach((n,i) => {
+      const s = document.createElement('span');
+      s.textContent = n;
+      if(n === '1') s.classList.add('active');
+      pag.appendChild(s);
+    });
+  </script>
+
+</body>
+</html>
